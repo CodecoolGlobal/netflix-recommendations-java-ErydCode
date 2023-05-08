@@ -23,11 +23,11 @@ public class CreditManager implements CsvItemCollection {
         credits = reader.readAll("/credits.csv");
     }
 
-    public List<Title> getAllTitlesByCreditName(String name, List<Title> titles, int n) {
+    public List<Title> getAllTitlesByCreditName(String name, List<Title> titles) {
         //TODO: Your code here
         return new ArrayList<>(titles.stream().filter(title -> credits.stream()
-                .filter(credit -> containsIgnoreCase(credit.getName(), name)).map(Credit::getId)
-                .anyMatch(id -> id.equals(title.getId()))).limit(n).toList());
+                .filter(credit -> containsIgnoreCase(credit.getName(), name)).map(Credit::getId).toList()
+                .contains(title.getId())).toList());
     }
 
     public List<Credit> getCredits() {

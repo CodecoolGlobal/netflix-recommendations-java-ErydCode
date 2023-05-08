@@ -78,8 +78,7 @@ public class NetflixApplication {
 
     private void getAllTitlesByCreditName() {
         String name = scanner.getUserInput("Type in a name!");
-        int n = scanner.getNumericUserInput("Length of the list?");
-        List<Title> allTitlesByCreditName = credits.getAllTitlesByCreditName(name, titles.getTitles(), n);
+        List<Title> allTitlesByCreditName = credits.getAllTitlesByCreditName(name, titles.getTitles());
         printer.printTitleOutcome(allTitlesByCreditName);
     }
 

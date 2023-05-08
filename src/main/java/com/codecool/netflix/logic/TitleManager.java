@@ -37,7 +37,7 @@ public class TitleManager implements CsvItemCollection {
     public List<Credit> getAllCreditsForTitle(String userTitle, List<Credit> credits) throws NoSuchElementException {
         //TODO: Your code here
         return new ArrayList<>(credits.stream().filter(credit -> credit.getId().equals(
-                titles.stream().filter(title -> title.getTitle().contains(userTitle))
+                titles.stream().filter(title -> containsIgnoreCase(title.getTitle(), userTitle))
                         .findFirst().orElseThrow(NoSuchElementException::new).getId())).toList());
     }
 
